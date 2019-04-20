@@ -3,6 +3,7 @@ package com.in28minutes.junit5;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.Duration;
+import java.util.Arrays;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -80,6 +81,10 @@ class StringTest {
 	@Test 
 	@RepeatedTest(5)
 	void split_basic(){
+		int[] numbers = {12,3,4,1};
+		int[] expected = {1,3,4,12};
+		Arrays.sort(numbers);
+		assertArrayEquals(expected, numbers);
 		String str = "abc def ghi";
 		String actualResult[] = str.split(" ");
 		String[] expectedResult = new String[] {"abc", "def", "ghi"};
